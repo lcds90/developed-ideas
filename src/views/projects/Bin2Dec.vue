@@ -11,13 +11,16 @@ const { input } = useBinaryConversion();
       v-model="input.value"
       :placeholder="input.placeholder"
     />
-    <span v-if="input.value"> {{ input.text }} </span>
+    <span class="result" v-show="input.value"> {{ input.text }} </span>
   </main>
 </template>
 
 <style scoped>
 .main {
   padding: 20px;
+  display: grid;
+  grid: max-content 1fr / 1fr;
+  justify-items: center;
 }
 
 .input {
@@ -28,5 +31,17 @@ const { input } = useBinaryConversion();
   background: var(--color-primary-darkest-alpha);
   color: var(--color-primary-lightest);
   padding: 25px;
+}
+
+.result {
+  background: var(--color-primary-alpha);
+  color: var(--text-color);
+  padding: 25px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  place-self: center;
+  transition: all 2s ease;
+  width: 75%;
+  text-align: center;
 }
 </style>

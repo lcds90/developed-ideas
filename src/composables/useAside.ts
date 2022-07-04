@@ -19,10 +19,11 @@ export const useAside = () => {
     app: {
       selector: '#app',
       whenClosed: {
-        grid: "1fr / 0.5fr 1fr",
         duration: 3,
+        grid: "1fr / 0.5fr 1fr",
       },
       whenOpen: {
+        duration: 3,
         grid: "1fr / 0.1fr 1fr",
       },
     },

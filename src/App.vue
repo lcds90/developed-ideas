@@ -1,26 +1,23 @@
 <script setup lang="ts">
-import ProjectView from "./views/ProjectView.vue";
 import { RouterLink, RouterView } from "vue-router";
 import { useAside, useTheme } from "./composables";
 const { toggleAside } = useAside();
-const { toggleTheme, userTheme } = useTheme();
+const { themeOptions, toggleTheme } = useTheme();
 </script>
 
 <template>
   <aside class="aside">
     <div class="aside-overlay" :onClick="toggleAside"></div>
     <nav class="navbar">
-      <RouterLink to="/">🏠 Home</RouterLink>
-      <RouterLink to="/about">✨ Outros projetos</RouterLink>
-      <a class="theme" :onClick="toggleTheme">
-        {{ userTheme === "dark-theme" ? "🌙" : "🌞" }}
-        Mudar o tema
+      <RouterLink to="/">🏠 home</RouterLink>
+      <RouterLink to="/projects">✨ projetos</RouterLink>
+      <a class="theme" :onClick="toggleTheme" :title="themeOptions.title">
+        {{ themeOptions.text }}
       </a>
     </nav>
-
-    <RouterView />
+    <RouterView name="about" />
   </aside>
-  <project-view />
+  <RouterView />
 </template>
 
 <style>
