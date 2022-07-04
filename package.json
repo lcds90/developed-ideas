@@ -14,7 +14,9 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "gsap": "^3.10.4",
     "pinia": "^2.0.14",
+    "vite-plugin-vue-markdown": "^0.20.1",
     "vue": "^3.2.37",
     "vue-router": "^4.0.16"
   },
@@ -38,6 +40,7 @@
     "start-server-and-test": "^1.14.0",
     "typescript": "~4.7.4",
     "vite": "^2.9.12",
+    "vite-plugin-md": "^0.18.1",
     "vitest": "^0.15.1",
     "vue-tsc": "^0.38.1"
   }
