@@ -34,6 +34,7 @@ const { toggleTheme, userTheme } = useTheme();
 
 .aside {
   display: grid;
+  grid: 1fr / 0.5fr 1fr;
   grid: max-content 1fr / 1fr;
   align-items: center;
   justify-items: center;

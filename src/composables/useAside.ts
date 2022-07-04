@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import { reactive } from "vue";
+import { onMounted, reactive } from "vue";
 
 interface IAnimationStates {
   selector: string,
@@ -20,17 +20,18 @@ export const useAside = () => {
       selector: '#app',
       whenClosed: {
         grid: "1fr / 0.5fr 1fr",
+        duration: 3,
       },
       whenOpen: {
-        grid: "1fr / 0.015fr 1fr",
+        grid: "1fr / 0.1fr 1fr",
       },
     },
     asideOverlay: {
       selector: '.aside-overlay',
       whenClosed: {
-        duration: 2,
         width: "10px",
         ease: "bounce",
+        duration: 1.5,
       },
       whenOpen: {
         width: "100%",
@@ -39,7 +40,6 @@ export const useAside = () => {
   });
 
   console.log('options', options);
-  gsap.set(options.app.selector, options.app.whenClosed);
   const toggleAside = () => {
     const animationWhenOpen = () => {
       const tl = gsap.timeline({ duration: 1 });
@@ -50,13 +50,17 @@ export const useAside = () => {
     const animationWhenClosed = () => {
       const tl = gsap.timeline({ duration: 1 });
       tl.to(options.asideOverlay.selector, { ...options.asideOverlay.whenClosed });
-      tl.to(options.app.selector, { ...options.app.whenClosed }, "-=2.5");
+      tl.to(options.app.selector, { ...options.app.whenClosed });
     };
 
     options.isOpen = !options.isOpen;
     if (options.isOpen) animationWhenOpen();
     else animationWhenClosed();
   };
+
+  onMounted(() => {
+    gsap.set(options.app.selector, options.app.whenClosed);
+  })
 
   return { toggleAside }
 }
