@@ -27,6 +27,7 @@ const { themeOptions, toggleTheme } = useTheme();
 #app {
   font-weight: normal;
   display: grid;
+  grid: 1fr / 0.5fr 1fr;
 }
 
 .aside {

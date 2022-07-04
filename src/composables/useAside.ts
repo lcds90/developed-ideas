@@ -19,12 +19,14 @@ export const useAside = () => {
     app: {
       selector: '#app',
       whenClosed: {
-        duration: 3,
+        ease: "power2.inOut",
+        duration: 1.25  ,
         grid: "1fr / 0.5fr 1fr",
       },
       whenOpen: {
-        duration: 3,
-        grid: "1fr / 0.1fr 1fr",
+        ease: "power2.inOut",
+        duration: 1.5,
+        grid: "1fr / 0.025fr 1fr",
       },
     },
     asideOverlay: {
@@ -32,7 +34,7 @@ export const useAside = () => {
       whenClosed: {
         width: "10px",
         ease: "bounce",
-        duration: 1.5,
+        duration: 0.5,
       },
       whenOpen: {
         width: "100%",
@@ -51,17 +53,13 @@ export const useAside = () => {
     const animationWhenClosed = () => {
       const tl = gsap.timeline({ duration: 1 });
       tl.to(options.asideOverlay.selector, { ...options.asideOverlay.whenClosed });
-      tl.to(options.app.selector, { ...options.app.whenClosed });
+      tl.to(options.app.selector, { ...options.app.whenClosed }, '-=0.5');
     };
 
     options.isOpen = !options.isOpen;
     if (options.isOpen) animationWhenOpen();
     else animationWhenClosed();
   };
-
-  onMounted(() => {
-    gsap.set(options.app.selector, options.app.whenClosed);
-  })
 
   return { toggleAside }
 }
