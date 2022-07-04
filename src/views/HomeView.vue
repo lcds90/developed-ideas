@@ -8,8 +8,6 @@ const data = reactive({
   imgUrl:
     "https://24.media.tumblr.com/46450d8bccae150d92651f3dbf6f4380/tumblr_n1ufyacjl41qza1qzo1_500.gif",
 });
-
-console.log("document", document);
 </script>
 
 <template>

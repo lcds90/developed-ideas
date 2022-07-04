@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ProjectView from "./views/ProjectView.vue";
 import { RouterLink, RouterView } from "vue-router";
 import { useAside, useTheme } from "./composables";
 const { toggleAside } = useAside();
@@ -19,6 +20,7 @@ const { toggleTheme, userTheme } = useTheme();
 
     <RouterView />
   </aside>
+  <project-view />
 </template>
 
 <style>
@@ -28,7 +30,6 @@ const { toggleTheme, userTheme } = useTheme();
 #app {
   font-weight: normal;
   display: grid;
-  grid: 1fr / 0.5fr 1fr;
 }
 
 .aside {
@@ -55,6 +56,7 @@ const { toggleTheme, userTheme } = useTheme();
   top: 0;
   right: 0;
   z-index: 4;
+  cursor: w-resize;
 }
 
 .dark-theme .aside-overlay {
