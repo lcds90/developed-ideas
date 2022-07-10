@@ -2,19 +2,25 @@
 
 > **Tier:** 1-Beginner
 
+<p class="paragraph">
 Binary is the number system all digital computers are based on.
 Therefore it's important for developers to understand binary, or base 2,
 mathematics. The purpose of Bin2Dec is to provide practice and
 understanding of how binary calculations.
+</p>
 
+<p class="paragraph">
 Bin2Dec allows the user to enter strings of up to 8 binary digits, 0's
 and 1's, in any sequence and then displays its decimal equivalent.
+</p>
 
+<p class="requires">
 This challenge requires that the developer implementing it follow these
-constraints:
+constraints
+</p>
 
--   Arrays may not be used to contain the binary digits entered by the user
--   Determining the decimal equivalent of a particular binary digit in the
+-   [x] Arrays may not be used to contain the binary digits entered by the user
+-   [x] Determining the decimal equivalent of a particular binary digit in the
     sequence must be calculated using a single mathematical function, for
     example the natural logarithm. It's up to you to figure out which function
     to use.
@@ -40,8 +46,6 @@ Try not to view this until you've developed your own solution:
 -   [Binary to decimal conversion program for beginners](https://www.youtube.com/watch?v=YMIALQE26KQ)
 -   [Binary to Decimal converter using React](https://github.com/email2vimalraj/Bin2Dec)
 -   [Binary to Decimal converter with plain html, js and css](https://grfreire.github.io/Bin2Dec/)
--   [Binary to Decimal converter using Flutter & Dart](https://github.com/israelss/AppIdeasCollection/tree/master/Tier1/Bin2Dec)
-    -   [Live preview built with Flutter for Web](https://bin2dec.web.app/#/)
+-   [Binary to Decimal converter using Flutter & Dart](https://github.com/israelss/AppIdeasCollection/tree/master/Tier1/Bin2Dec) / [Live preview built with Flutter for Web](https://bin2dec.web.app/#/)
 -   [Binary to Decimal converter using React](https://github.com/geoffctn/Bin2Dec)
--   [Matrix-like Binary to Decimal converter using Angular](https://github.com/ZangiefWins/MatrixBin2Dec)
-    -   [Live preview on heroku](https://matrix-bin2dec.herokuapp.com/)
+-   [Matrix-like Binary to Decimal converter using Angular](https://github.com/ZangiefWins/MatrixBin2Dec) / [Live preview on heroku](https://matrix-bin2dec.herokuapp.com/)

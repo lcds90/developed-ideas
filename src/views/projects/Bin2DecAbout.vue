@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive } from "vue";
+import { onMounted, reactive } from "vue";
 import projectReadme from "@/assets/README.md";
 
 const data = reactive({
@@ -8,6 +8,8 @@ const data = reactive({
   imgUrl:
     "https://24.media.tumblr.com/46450d8bccae150d92651f3dbf6f4380/tumblr_n1ufyacjl41qza1qzo1_500.gif",
 });
+
+// onMounted(async () => {});
 </script>
 
 <template>
@@ -28,7 +30,7 @@ const data = reactive({
   </main>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .main {
   display: grid;
   grid: 1fr / max-content 1fr;
@@ -77,20 +79,108 @@ const data = reactive({
 
 .project-readme {
   overflow-y: auto;
-}
 
-.project-readme >>> h1 {
-  font-size: 1.5em;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  background: var(--color-primary);
-  transition: color 0.5s, background-color 0.5s, box-shadow 1s;
-  border-radius: 25px;
-  box-shadow: 0 5px 5px var(--color-primary-lightest);
-  text-align: center;
-  margin-bottom: 15px;
+  :deep(h1) {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: var(--color-primary-alpha);
+    transition: color 0.5s, background-color 0.5s, box-shadow 1s;
+    border-radius: 25px;
+    box-shadow: 0 5px 5px var(--color-primary-darkest);
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  :deep(h2) {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 25px;
+    outline: 0;
+    background: var(--color-primary-alpha);
+    color: var(--color-text);
+    transition: color 0.5s, background-color 0.5s, box-shadow 1s;
+    border-radius: 10px;
+    border: 1px solid var(--color-text);
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  :deep(blockquote) {
+    font-size: 0.7em;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    transition: color 0.5s, background-color 0.5s, box-shadow 1s;
+    border-radius: 5px;
+    background: grey;
+    color: white;
+    border-bottom: 0.5px solid var(--color-text);
+    text-align: center;
+    margin: 15px;
+    width: 50%;
+    margin-left: 25%;
+  }
+
+  :deep(.paragraph),
+  :deep(.requires) {
+    font-size: 0.85em;
+    line-height: 1.5em;
+    padding: 5px;
+    border-bottom: 0.5px solid var(--color-text);
+    transition: color 0.5s, background-color 0.5s, box-shadow 1s;
+    text-align: justify;
+  }
+
+  :deep(.requires) {
+    text-align: left;
+    color: var(--color-primary);
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+    background: var(--color-primary-alpha);
+    border-bottom: 0;
+    margin-block: 25px;
+    padding-inline: 25px;
+    padding-block: 10px;
+  }
+
+  :deep(ul) {
+    list-style: none;
+    padding: 0;
+    margin: 5px 10px;
+    border: 0;
+    outline: 0;
+    transition: color 0.5s, background-color 0.5s, box-shadow 1s;
+    border-radius: 5px;
+    border-bottom: 4px dotted var(--color-text);
+    text-align: left;
+  }
+
+  :deep(li) {
+    font-size: 0.85em;
+    line-height: 1.5em;
+    padding: 5px;
+    transition: color 0.5s, background-color 0.5s, box-shadow 1s;
+  }
+
+  :deep(a) {
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.5s, background-color 0.5s, padding 1s, font-size 1.25s;
+
+    &:hover {
+      color: var(--color-primary-darkest);
+      text-decoration: underline;
+      background: var(--color-primary-alpha);
+      padding: 1.5px;
+      font-size: 1.1em;
+    }
+  }
 }
 </style>
