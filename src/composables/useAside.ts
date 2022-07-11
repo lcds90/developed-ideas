@@ -2,25 +2,25 @@ import gsap from "gsap";
 import { onMounted, reactive } from "vue";
 
 interface IAnimationStates {
-  selector: string,
-  whenClosed: gsap.TweenVars,
-  whenOpen: gsap.TweenVars,
+  selector: string;
+  whenClosed: gsap.TweenVars;
+  whenOpen: gsap.TweenVars;
 }
 
 interface IOptions {
   isOpen: boolean;
-  app: IAnimationStates,
-  asideOverlay: IAnimationStates,
+  app: IAnimationStates;
+  asideOverlay: IAnimationStates;
 }
 
 export const useAside = () => {
   const options = reactive<IOptions>({
     isOpen: false,
     app: {
-      selector: '#app',
+      selector: "#app",
       whenClosed: {
         ease: "power2.inOut",
-        duration: 1.25  ,
+        duration: 1.25,
         grid: "1fr / 0.5fr 1fr",
       },
       whenOpen: {
@@ -30,7 +30,7 @@ export const useAside = () => {
       },
     },
     asideOverlay: {
-      selector: '.aside-overlay',
+      selector: ".aside-overlay",
       whenClosed: {
         width: "10px",
         ease: "bounce",
@@ -39,21 +39,29 @@ export const useAside = () => {
       whenOpen: {
         width: "100%",
       },
-    }
+    },
   });
 
-  console.log('options', options);
+  console.log("options", options);
   const toggleAside = () => {
     const animationWhenOpen = () => {
       const tl = gsap.timeline({ duration: 1 });
-      tl.to(options.asideOverlay.selector, { ...options.asideOverlay.whenOpen });
+      tl.to(".main", { opacity: 0 });
+      tl.to(options.asideOverlay.selector, {
+        ...options.asideOverlay.whenOpen,
+      });
       tl.to(options.app.selector, { ...options.app.whenOpen });
+      tl.to(".main", { opacity: 1 }, "-=0.75");
     };
 
     const animationWhenClosed = () => {
       const tl = gsap.timeline({ duration: 1 });
-      tl.to(options.asideOverlay.selector, { ...options.asideOverlay.whenClosed });
-      tl.to(options.app.selector, { ...options.app.whenClosed }, '-=0.5');
+      tl.to(".main", { opacity: 0 });
+      tl.to(options.asideOverlay.selector, {
+        ...options.asideOverlay.whenClosed,
+      });
+      tl.to(options.app.selector, { ...options.app.whenClosed }, "-=0.5");
+      tl.to(".main", { opacity: 1 }, "-=0.5");
     };
 
     options.isOpen = !options.isOpen;
@@ -61,5 +69,5 @@ export const useAside = () => {
     else animationWhenClosed();
   };
 
-  return { toggleAside }
-}
+  return { toggleAside };
+};

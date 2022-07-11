@@ -24,6 +24,10 @@ const { themeOptions, toggleTheme } = useTheme();
 @import "@/assets/variables.css";
 @import "@/assets/base.css";
 
+html {
+  overflow-y: hidden;
+}
+
 #app {
   font-weight: normal;
   display: grid;
@@ -118,4 +122,23 @@ const { themeOptions, toggleTheme } = useTheme();
   margin-bottom: 25px;
   margin-right: 50px;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+  background: var(--color-primary);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-primary-darkest-alpha);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-lightest);
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-lightest-alpha);
+}
+
 </style>

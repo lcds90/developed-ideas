@@ -4,7 +4,7 @@
     --vt-c-white-soft: #f8f8f8;
     --vt-c-white-mute: #f2f2f2;
 
-    --vt-c-black: #2b2b2b;
+    --vt-c-black: #131313;
     --vt-c-black-soft: #222222;
     --vt-c-black-mute: #282828;
 
@@ -34,7 +34,7 @@
 
 /* semantic color variables for this project */
 :root {
-    --color-background: var(--vt-c-white);
+    --color-background: linear-gradient(120deg, var(--vt-c-white),var(--vt-c-white-mute));
     --color-background-soft: var(--vt-c-white-soft);
     --color-background-mute: var(--vt-c-white-mute);
 
@@ -62,7 +62,7 @@
 
 
 :root.dark-theme {
-    --color-background: var(--vt-c-black);
+    --color-background: linear-gradient(120deg, var(--vt-c-black),var(--vt-c-black-mute));
     --color-background-soft: var(--vt-c-black-soft);
     --color-background-mute: var(--vt-c-black-mute);
 

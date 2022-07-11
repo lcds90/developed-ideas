@@ -5,32 +5,59 @@ const { input } = useBinaryConversion();
 
 <template>
   <main class="main">
-    <input
-      class="input"
-      type="text"
-      v-model="input.value"
-      :placeholder="input.placeholder"
-    />
-    <span class="result" v-show="input.value"> {{ input.text }} </span>
+    <section>
+      <input
+        class="input"
+        type="text"
+        v-model="input.value"
+        :placeholder="input.placeholder"
+      />
+    </section>
+    <section class="result">
+      <span v-if="input.value">{{ input.text }}</span>
+      <span v-else>aguardando valor ser inserido</span>
+    </section>
   </main>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+* {
+  font-family: "Courier New", Courier, monospace;
+}
+
 .main {
   padding: 20px;
   display: grid;
-  grid: max-content 1fr / 1fr;
+  grid: 0.5fr 1fr / 1fr;
   justify-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+section {
+  width: 100%;
+  display: grid;
+  place-items: center;
 }
 
 .input {
   width: 100%;
-  height: 10%;
+  height: 25px;
   display: grid;
   place-items: center;
-  background: var(--color-primary-darkest-alpha);
-  color: var(--color-primary-lightest);
+  background: var(--color-primary-alpha);
+  color: var(--color-text);
   padding: 25px;
+
+  &:placeholder-shown {
+    color: white !important;
+  }
+
+  &::placeholder {
+    color: var(--color-primary-mute);
+    font-weight: 500;
+    font-style: italic;
+  }
 }
 
 .result {
@@ -42,6 +69,9 @@ const { input } = useBinaryConversion();
   place-self: center;
   transition: all 2s ease;
   width: 75%;
+  height: 100px;
   text-align: center;
+  transition: all 2s ease;
+  font-weight: 200;
 }
 </style>

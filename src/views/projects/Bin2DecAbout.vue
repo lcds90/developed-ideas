@@ -8,8 +8,6 @@ const data = reactive({
   imgUrl:
     "https://24.media.tumblr.com/46450d8bccae150d92651f3dbf6f4380/tumblr_n1ufyacjl41qza1qzo1_500.gif",
 });
-
-// onMounted(async () => {});
 </script>
 
 <template>
@@ -34,8 +32,8 @@ const data = reactive({
 .main {
   display: grid;
   grid: 1fr / max-content 1fr;
-  background: var(--color-background);
-  transition: color 0.5s, background-color 0.5s;
+  background-image: var(--color-background);
+  transition: color 0.5s, background-image 0.5s;
   width: 100%;
   place-items: center;
 }
@@ -56,8 +54,9 @@ const data = reactive({
   height: 70vh;
   padding: 5px;
   margin: 20px;
-  border-left: 5px double var(--color-text);
+  // border-left: 5px double var(--color-text);
   transition: border-left 0.5s;
+  direction: rtl !important;
 }
 
 .logo {
